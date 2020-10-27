@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+    /* background-color: rgb(0, 0, 0); */
+    /* color: rgb(38, 255, 255); */
+    color: rgb(0, 153, 255);
+    /* background-image: url("/img/wallp.jpg"); */
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .navbar-brand{
+    text-align: center;
+    padding: 15px;
+    text-align: center;
+    /* background: rgb(19, 18, 18);
+    color: rgb(224, 73, 73); */
+    font-size: 30px;
+    font-family: 'Arial', Times, serif;
+    font-weight: 100%;
+  }
+
+  h5{
+    /* color: #0ae0cf; */
+    color: rgb(0, 153, 255);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  p,.footer-bottom{
+    color: rgb(250, 250, 250);
+  }
+
+  .navbar-custom { 
+    color: lightgreen; 
+} 
+  
+  html, 
+  body {
+    height: 100%;
+    font-family: Arial, sans-serif, Helvetica;
+  }
+
+  .page-wrapper {
+    min-height: 100%;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(245, 245, 245, 1); /* this adds the "card" effect */
+    padding: 0px;
+    text-align: center;
+    background-color:  rgb(2, 1, 3);
+  }
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    #card-footer{
+      background-color: rgb(19, 18, 18);
+    }
+    
+    .center {
+      display: block;
+      margin-left: 50;
+      margin-right: 50;
+      width: 50%;
+    }
+  
+  li:hover {
+      transform: translateY(-4px);
+      transition:0.3s;
+      display: inline-block;
+  }
+
+  /* .icon-bar {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } */
+  
+  /* Style the icon bar links */
+  /* .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  } */
+  
+
+  /* NEW FOOTER */
+  .footer {
+    background: #303036;
+    color: #d3d3d3;
+    height: 400px;
+  }
+
+  .footer .footer-bottom {
+    background: #343a40;
+    color: #686868;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 20px;
+  }
+}
+
+  

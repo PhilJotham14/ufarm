@@ -1,0 +1,49 @@
+extends layout
+block content
+    header.card-header
+            h4.card-title Welcome
+            |&nbsp
+    div.form-row
+        div.col.form-group.col-md-12    
+            form.search(action='/register/userlist')
+                div.form-row
+                    div.col-md-8
+                        input.form-control(name='farmerOneNumber' placeholder="Enter your search term(farmerOneNumber) ...")
+                    div.col-md-4
+                        input.btn.btn-dark.btn-block(type="submit")
+    table.table
+        thead.thead-dark
+            tr
+                th Names
+                th Ward they Represent
+                th Date of Birth
+                th Unique Farmer One Number
+                th Phone Number
+                th NIN Number
+                th Activities He/She Invovled In
+                th Residence
+                th Period Spent In Ward(Years)
+                th 
+        tbody
+            each user in users
+                tr
+                    td #{user.names}
+                    td #{user.ward}
+                    td #{user.dateBirth}
+                    td #{user.farmerOneNumber}
+                    td #{user.phoneNumber}
+                    td #{user.nin}
+                    td #{user.activities}
+                    td #{user.residence}
+                    td #{user.periodSpentInWard}
+                    td
+                        form(method="post" action='/register/delete')
+                            input(type="hidden", placeholder="", name="id", value=user._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete
+    div.form-row
+            div.col-md-2.offset-9
+            <a class="nav-link btn btn-outline-success" href="/agricOfficerDashboard"><i class="fas fa-dice-d20"  aria-hidden="true"></i></i> BACK</a>
+                //- form(method="post" action='/logout') 
+                //-     button.btn.btn-dark.btn-block(type="submit") Log out
+            
+                        

@@ -1,0 +1,53 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Added Products Table
+        |&nbsp
+    div.form-row
+        div.col.form-group.col-md-12    
+            form.search(action='/addproduct/addproductform' enctype="multipart/form-data")
+                div.form-row
+                    div.col-md-8
+                        input.form-control(name='ward' placeholder="Enter your search term(ward) ...")
+                    div.col-md-4
+                        input.btn.btn-dark.btn-block(type="submit")
+    table.table
+        thead.thead-dark
+            tr
+                th Names
+                th Ward Name
+                th Date
+                th Unit Price
+                th Quantity
+                th Product Type
+                th Mode Of Payment
+                th Upload Image
+                th Mode Of Delivery
+                th Directions
+                th   
+                th  
+        tbody
+            each product in products
+                tr
+                    td #{product.names}
+                    td #{product.ward}
+                    td #{product.date}
+                    td #{product.price}
+                    td #{product.quantity}
+                    td #{product.product}
+                    td #{product.payment}
+                    td
+                        img(src=product.uploadimage, alt="", srcset="" width="100")
+                    td #{product.delivery}
+                    td #{product.directions}
+                    td
+                        form(method="post" action='/addproduct/delete')
+                            input(type="hidden", placeholder="", name="id", value=product._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete
+
+                        form(method="post" action='/update')
+                            input(type="hidden", placeholder="", name="id", value=product._id)
+                            button.btn.btn-dark.btn-block(type="submit") Update
+                    //- td
+                    //-     a(href='/addproduct/edit/'+product._id)
+                    //-         button.btn.btn-dark.btn-block(type="submit") Update

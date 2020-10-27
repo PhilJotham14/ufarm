@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/officeregistration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <title>Urban Farmer Registration Form.</title>
+  </head>
+ 
+  <body>
+        <div w3-include-html="/includes/urbanfarmnav.html"></div>
+        <div class="container">
+        <form name="mydata" action="/urbanFarmerRegister/urbanFarmerRegister"  method="POST">
+        <h3 class="text-center text-primary mb-5"><i class="fa fa-id-card"> URBAN FARMER REGISTRATION FORM.</h3></i>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="names">Names</label>
+                    <input type="text" class="form-control" id="names" name="names">
+                    <div class="error" id="names_err"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="ward">Ward Name.</label>
+                    <select class="custom-select" id="ward" name="ward">
+                        <option selected value="-- Ward Name --">-- Ward Name --</option>
+                        <option value="Ward One">Ward One</option>
+                        <option value="Ward Two">Ward Two</option>
+                        <option value="Ward Three">Ward Three</option>
+                        <option value="Ward Four">Ward Four</option>
+                    </select>
+                    <div class="error" id="ward_err"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="dateBirth">Date of Birth</label>
+                    <input type="date" class="form-control" id="dateBirth" name="dateBirth">
+                    <div class="error" id="dateBirth_err"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="farmerOneNumber">Unique ID.</label>
+                    <input type="text" class="form-control" id="farmerOneNumber" name="farmerOneNumber">
+                    <div class="error" id="farmerOneNumber_err"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="phoneNumber">Phone Number.</label>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                    <div class="error" id="phoneNumber_err"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="nin">NIN Number</label>
+                    <input type="text" class="form-control" id="nin" name="nin">
+                    <div class="error" id="nin_err"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col form-group">
+                    <label class="form-check form-check-inline" for="activities">Activities Undertaken.</label><br>
+                    |&nbsp;&nbsp; &nbsp;&nbsp;<input class="form-check-input" type="checkbox" name='activities' value="Horticulture Produce">
+                    <span class="form-check-label">Horticulture Produce</span>
+
+                    <label class="form-check form-check-inline" for="activities"></label> &nbsp;&nbsp;                                          
+                    <input class="form-check-input" type="checkbox" name='activities' value="Poultry">
+                    <span class="form-check-label">Poultry</span>
+                    //- <div class="error" id="gender_err"></div>
+
+                    <label class="form-check form-check-inline" for="activities"></label>  &nbsp;&nbsp;
+                    <input class="form-check-input" type="checkbox" name='activities' value="Dairy Products">
+                    <span class="form-check-label">Dairy Products</span>
+                    //- <div class="error" id="gender_err"></div>  
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="gender">Gender</label>
+                    <select class="custom-select" id="gender" name="gender">
+                        <option selected value="-- Gender --">-- Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <div class="error" id="gender_err"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="dateRegisteration">Date of Registeration.</label>
+                    <input type="date" class="form-control" id="dateRegisteration" name="dateRegisteration">
+                    <div class="error" id="dateRegisteration_err"></div>
+                </div>
+            </div>
+
+        <button class="btn btn-primary" type="submit" onclick='urbanRegistration()'>Register</button>
+        </form>
+        </div>
+        <script src="/validateUrbanRegister.js"></script>
+
+
+        //- <!-- Bootstrap being added to js -->
+        <script src="js/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+        <script src="js/bootstrap/js/popper.min.js"></script>
+        <script src="js/bootstrap/js/bootstrap.js"></script>
+        //- <!-- Top navigation bar -->
+        <script src="/includes/nav.js"></script>
+        //- <!-- Footer infinite slider -->
+        //- <script src="carousel/carousel.js"></script>
+        //- <script src="carousel/slideInc.js"></script>
+        //- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+        //- <!-- Slick Slider JS -->
+        //- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+        //- <!-- Advanced Font Awesome NB: You used two font awesomes for this project. -->
+        //- <script src="https://kit.fontawesome.com/496f246847.js" crossorigin="anonymous"></script>
+        //- <script src="/index.js"></script>
+        //- <!-- <script src="routes/registrationform.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/signInForm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <title>Office Sign In Form.</title>
+  </head>
+ 
+<body>
+    <form id="salessigni" name="mydata" action="/agricsignin/agricsignin" method="POST">
+    <div class="login-box">
+        <h1>Login</h1>
+        <div class="textbox">
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            <input class="text" type="username" placeholder="Username" name="username">
+        </div>
+        
+        <div class="textbox">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <input class="text" type="email" placeholder="Email" name="email">
+        </div>
+
+        <div class="textbox">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+            <input class="password" type="password" placeholder="Password" name="password">
+        </div>
+        <!-- <button type="submit" value="submit">Register</button> -->
+        <!-- <input class="btn" type="button" placeholder="" name="" value="Sign In" onclick='validatesignin()'> -->
+        <button type="submit" class="btn" value="submit" onclick='validatesignin()'>Sign In</button>
+    </div>
+    <script src="/validateSignIn.js"></script>
+</form>
+    
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/signUpStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
+    <title>Urban Farmer Sign Up Form.</title>
+  </head>
+ 
+  <body>
+        <div w3-include-html="/includes/urbanfarmnav.html"></div>
+            <div class="sign-up-form">
+            <img src="/img/teseract.jpg" aria-hidden="true">
+            <h1>Sign Up Now</h1>
+            <form id="signu" name="mydata" action="/wardOAuthSignUpForm/wardOAuthSignUpForm" method="POST">
+            <div>
+                <input type="text" class="input-box" placeholder="Your Username" id="username" name="username">
+                <div class="error" id="username_err"></div>
+            </div>
+
+            <div>
+                <input type="email" class="input-box" placeholder="Your Email" id="email" name="email">
+                <div class="error" id="email_err"></div>
+            </div>
+
+            <div>
+                <input type="password" class="input-box" placeholder="Your Passowrd" id="password" name="password">
+                <div class="error" id="password_err"></div>
+            </div>
+                <p><span><input type="checkbox"></span>I agree to the terms and services</p>
+                <button type="submit" class="signup-btn" value="submit" onclick='signUp()'>Sign up</button>
+                <hr>
+                <p class="or">OR</p>
+                <p>Do you have an account ? <a href="/agricsignin/agricsignin">Sign in</a></p>
+            </form>
+            </div>
+
+            <script src="/validateSignUp.js"></script>
+
+            <script src="/includes/nav.js"></script>
+</body>
+</html>
