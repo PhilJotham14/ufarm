@@ -3,9 +3,9 @@ const mongoose=require('mongoose');
 const router=express.Router();
 const multer = require('multer');
 
-
-// var view = "./views/"
-const Addproduct=require('../model/addproductmodel')
+var view = "./views/"
+const Addproduct=require('../model/addproductmodel');
+const { urlencoded } = require('body-parser');
 
 // uploading image
 const storage = multer.diskStorage({
@@ -24,11 +24,12 @@ const upload = multer({
 
 
 
-//registration
-router.get('/addproduct', (req, res) => {
+//Add product
+router.get('/', (req, res) => {
     // res.sendFile(__dirname + '/registration_form.html')
     res.render('addproductForm')
   })
+
 
   router.post('/addproduct', upload.single('uploadimage'), async (req, res) => {
     //outputs the form values in the console
@@ -71,33 +72,44 @@ router.get('/addproduct', (req, res) => {
     }
   })
 
-  // router.post("/update", async (req, res) => {
+
+  // router.post('/update', async (req, res, next) => {
   //   try {
-  //     await Addproduct.updateOne({_id: req.body.id }),
-  //     {
-  //       $set: {_id: req.body.id },
-  //       $currentDate: { "lastModified": true }
-  //     }
+  //     await Addproduct.updateOne ({"_id": objectId(id)}, {$set: item},({
+  //       names: req.body.names,
+  //       ward: req.body.ward,
+  //       date: req.body.date,
+  //       price: req.body.price,
+  //       quantity: req.body.quantity,
+  //       product: req.body.product,
+  //       payment: req.body.payment,
+  //       uploadimage: req.file.path,
+  //       delivery: req.body.delivery,
+  //       directions: req.body.directions,
+  //      })
   //     // res.redirect('back')
-  //   } catch (error) {
+  //     )} catch (error) {
   //      res.status(400).send("unable to update to database");
   //   }
   // })
-  router.post("/update").put(function(req, res) {
-    Addproduct.updateOne({_id: req.body.id }, function(
-      err,
-      result
-    ) {
-      if (err) {
-        res.send(err);
-      } else {
-        res.json(result);
-      }
-    });
-  });
-  
 
-  
+  // router.put('/update', function(req, res){
+  //   console.log('Update');
+  //   Names.findByIdAndUpdate(req.params.id),
+  //   {
+      
+  //   }
+  //   // ward: req.body.ward,
+  //   // date: req.body.date,
+  //   // price: req.body.price,
+  //   // quantity: req.body.quantity,
+  //   // product: req.body.product,
+  //   // payment: req.body.payment,
+  //   // uploadimage: req.file.path,
+  //   // delivery: req.body.delivery,
+  //   // directions: req.body.directions,
+  // })
+
   router.post("/delete", async (req, res) => {
     try {
       await Addproduct.deleteOne({_id: req.body.id })
@@ -106,6 +118,73 @@ router.get('/addproduct', (req, res) => {
        res.status(400).send("unable to delete to database");
     }
   })
-  
+
+  //just added for testing
+  //   //__________ view single purchase
+  // router.get('/addproduct/:id', (req,res)=>{
+  //   Addproduct.findById(req.params.id, (error, purchase) =>{
+  //     res.render('addproductFormdup',{//create this view
+  //       products:products
+  //     })
+  //   })
+  // }) 
+
+
+
+  router.post('/addproduct/:id', upload.single('uploadimage'), async (req, res) => {
+    //outputs the form values in the console
+    console.log(req.body);
+    console.log(req.file);
+    // res.redirect('/');
+    const addproductmodel = new Addproduct({
+        names: req.body.names,
+        ward: req.body.ward,
+        date: req.body.date,
+        price: req.body.price,
+        quantity: req.body.quantity,
+        product: req.body.product,
+        payment: req.body.payment,
+        uploadimage: req.file.path,
+        delivery: req.body.delivery,
+        directions: req.body.directions,
+    });
+    try {
+      await addproductmodel.update()
+      // res.send('Thank you for your registration!');
+      console.log(req.body);
+      res.redirect('/addproduct/update/')
+  } catch (err) {
+      res.send('Sorry! Something went wrong.');
+      console.log(err);
+  }
+  })
+
+  // Updating Products routes
+  router.get('/edit/:id', (req,res)=>{
+    Addproduct.findById(req.params.id, (errror, products) =>{
+      res.render('addproductFormdup',{
+        products:products
+      })
+    })
+  })
+
+  // ___________ update add product
+  router.post('/addproduct/:id', async (req, res) =>{ 
+    let query ={_id:req.params.id}
+      try{
+        await Addproduct.update(query, req.body)
+        res.redirect('/addproduct/addproductform')
+      }catch (err) {
+        res.send("Sorry! Something went wrong.");
+        console.log(err)
+      }
+  })
+  // router.get('/edit/:id', (req,res)=>{
+  //   AdminRegistration.findById(req.params.id, (errror, agent) =>{
+  //     res.render('admins/edit_agent',{
+  //       agent:agent
+  //     })
+  //   })
+  // })
 
   module.exports=router;

@@ -10,12 +10,14 @@ const registrationpugRoutes=require('./routes/officeregistrationformroutes')
 const salesRoutes=require('./routes/salesroutes')
 const agricOfficerDashboardRoutes=require('./routes/agricOfficerDashboardroutes')
 const wardOneDashboardRoutes=require('./routes/wardOneDashboardroutes')
+const urbanFarmerDashboardRoutes=require('./routes/urbanFarmerDashboardRoutes')
 const agricOfficerSignUpFormRoutes=require('./routes/agricOfficerSignUpForm')
 const agricOfficerSignInFormRoutes=require('./routes/agricOfficerSignInroutes')
 const urbanFarmerRegisterationRoutes=require('./routes/urbanFarmerRegisterRoutes')
 const wardOauthsignUpFormRoutes=require('./routes/wardOAuthSignUpFormRoutes')
 const wardOauthsignInFormRoutes=require('./routes/wardOAuthSignInFormRoutes')
 const addproductFormRoutes=require('./routes/addproductformroutes')
+const bookinglistFormRoutes=require('./routes/bookingformroutes')
 
 
 const bodyParser= require('body-parser')
@@ -36,6 +38,7 @@ require('./model/urbanFarmerregisterationmodel');
 require('./model/agricOfficerSignUpmodel');
 require('./model/wardOAuthSignUpFormmodel');
 require('./model/addproductmodel');
+require('./model/bookingformmodel');
 
 
 
@@ -96,13 +99,13 @@ app.use('/wardOneDashboard',wardOneDashboardRoutes);
 app.use('/wardTwoDashboard',agricOfficerDashboardRoutes);
 app.use('/wardThreeDashboard',agricOfficerDashboardRoutes);
 app.use('/wardFourDashboard',agricOfficerDashboardRoutes);
-app.use('/urbanFarmerDashboard',agricOfficerDashboardRoutes);
+app.use('/urbanFarmerDashboard',urbanFarmerDashboardRoutes);
 app.use('/urbanFarmerRegister',urbanFarmerRegisterationRoutes);
 app.use('/wardOAuthSignUpForm',wardOauthsignUpFormRoutes);
 app.use('/wardOAuthSignInForm',wardOauthsignInFormRoutes);
 app.use('/addproduct',addproductFormRoutes);
 app.use('/addproduct/uploads', express.static(path.join(__dirname, 'uploads')));
-
+app.use('/booking',bookinglistFormRoutes);
 
 //When a wrong path is accessed.
 app.get('*', (req, res) => {

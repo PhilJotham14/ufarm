@@ -1,0 +1,45 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Welcome
+        |&nbsp
+    div.form-row
+        div.col.form-group.col-md-12    
+            form.search(action='/booking/orderlist')
+                div.form-row
+                    div.col-md-8
+                        input.form-control(name='email' placeholder="Enter your search term(email) ...")
+                    div.col-md-4
+                        input.btn.btn-dark.btn-block(type="submit")
+    table.table
+        thead.thead-dark
+            tr
+                th Names
+                th Email
+                th Check In
+                th Product Name
+                th Quantity
+                th Mode Of Payment
+                th Mode Of Delivery
+                th Phone Number
+                th Location
+                th 
+        tbody
+            each order in orders
+                tr
+                    td #{order.names}
+                    td #{order.email}
+                    td #{order.date}
+                    td #{order.product}
+                    td #{order.quantity}
+                    td #{order.payment}
+                    td #{order.delivery}
+                    td #{order.phoneNumber}
+                    td #{order.directions}
+                    td
+                        form(method="post" action='/booking/delete')
+                            input(type="hidden", placeholder="", name="id", value=order._id)
+                            button.btn.btn-dark.btn-block(type="submit") Delete
+    div.form-row
+            div.col-md-2.offset-9
+            <a class="nav-link btn btn-outline-success" href="/wardOneDashboard"><i class="fas fa-dice-d20"  aria-hidden="true"></i></i> BACK</a>

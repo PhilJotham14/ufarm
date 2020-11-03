@@ -1,3 +1,5 @@
+const { eventNames } = require("../model/addproductmodel");
+
 function printError(elemId, hintMsg){
     document.getElementById(elemId).innerHTML = hintMsg;
 }
@@ -17,7 +19,7 @@ function urbanRegistration(){
 
     // _______ validating first name
     if(names === ""){
-        printError("names_err", "please enter your Name");
+        printError("names_err", "Please enter your Name");
         const errId = document.getElementById('names');
         errId.style.border = '1px solid red';
     }
@@ -57,7 +59,7 @@ function urbanRegistration(){
 
      // _______ validating bd
      if(dateBirth === ""){
-        printError("dateBirth_err", "please enter your Date of Birth");
+        printError("dateBirth_err", "Please enter your Date of Birth");
         const errId = document.getElementById('dateBirth');
         errId.style.border = '1px solid red';
     }else{
@@ -67,7 +69,7 @@ function urbanRegistration(){
 
      // _______ validating place
      if(farmerOneNumber === ""){
-        printError("farmerOneNumber_err", "please enter Farmer One Number");
+        printError("farmerOneNumber_err", "Please enter Farmer One Number");
         const errId = document.getElementById('farmerOneNumber');
         errId.style.border = '1px solid red';
     }
@@ -90,7 +92,7 @@ function urbanRegistration(){
 
     // _______ validating occupation
     if(phoneNumber === ""){
-        printError("phoneNumber_err", "please enter Phone Number");
+        printError("phoneNumber_err", "Please enter Phone Number");
         const errId = document.getElementById('phoneNumber');
         errId.style.border = '1px solid red';
     }
@@ -124,7 +126,7 @@ function urbanRegistration(){
     else{
         var regex = /^[A-Z]{3}[0-9]{1,8}[A-Z]*$/;
         if(regex.test(nin) === false){
-            printError("nin_err", "please enter a valid NIN(ABC123456DEFG)")
+            printError("nin_err", "Please enter a valid NIN(ABC123456DEFG)")
             const errId = document.getElementById('nin');
         errId.style.border = '1px solid red';
         }else{
@@ -135,7 +137,7 @@ function urbanRegistration(){
 
     // _____ Validating Residence
     if(gender === "-- Gender --"){
-        printError("gender_err", "please select your Gender");
+        printError("gender_err", "Please select your Gender");
         const errId = document.getElementById('gender');
         errId.style.border = '1px solid red';
     }else{

@@ -249,3 +249,87 @@ p{
 	height: 20px;
 	z-index: 1;
 }
+
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	background:#222;
+	font-family:Segoe UI;
+	color:#E6E6E6;
+}
+
+.wrap{
+	width:80%;
+	display:block;
+	margin:20px auto 20px auto;
+}
+
+.intro a{
+	color:#0FA3DE;
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+/* Popup CSS */
+.wrap_popup{
+	display:none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height:100%;
+	width:100%;
+	overflow:auto;
+   /* background-color: rgba(0, 0, 0, 0.6); */
+    background-color: rgba(0, 122, 114, 0.932);
+}
+
+.popup{
+	height:auto;
+	width:80%;
+	max-width:600px;
+	margin:5% auto;
+	display:block;
+	border-radius:8px;
+	overflow:hidden;
+	/* -moz-box-shadow: 0 0 5px $popupShadow; */
+	/* -webkit-box-shadow: 0 0 5px $popupShadow; */
+	/* box-shadow: 0 0 5px $popupShadow; */
+}
+
+.title{
+	width:100%;
+	display:block;
+	/* background:$titleBack; */
+	/* color:$titleText; */
+	font-weight:700;
+	padding:5px;
+}
+
+.title p{
+	margin:5px;
+}
+
+.box{
+	width:100%;
+	display:block;
+	/* background:$boxBack; */
+	padding:5px;
+	/* color:$boxText; */
+}
+
+.box p{
+	margin:5px;
+}
+
+.box button{
+	padding:10px;
+	margin:10px 0px 10px 0px;
+	/* background:$buttonBack; */
+	/* color:$buttonText; */
+	/* border:3px solid $buttonBorder; */
+	border-radius:5px;
+}

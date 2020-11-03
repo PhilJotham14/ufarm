@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/officeregistration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css">
+    <title>Add Product Form.</title>
+  </head>
+ 
+  <body>
+        <div w3-include-html="/includes/customnav.html"></div>
+        <div class="container">
+        <form name="mydata" action='/addproduct/update/'+product._id  method="POST" enctype="multipart/form-data">
+        <h3 class="text-center text-primary mb-5"><i class="fa fa-id-card"> ADD PRODUCT FORM.</h3></i>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="names">Names</label>
+                    <input type="text" class="form-control" id="names" name="names">
+                    <div class="error" id="names_err"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="ward">Ward Name.</label>
+                    <select class="custom-select" id="ward" name="ward">
+                        <option selected value="-- Ward they Represent --">-- Ward they Represent --</option>
+                        <option value="Ward One">Ward One</option>
+                        <option value="Ward Two">Ward Two</option>
+                        <option value="Ward Three">Ward Three</option>
+                        <option value="Ward Four">Ward Four</option>
+                    </select>
+                    <div class="error" id="ward_err"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="date">Date</label>
+                    <input type="date" class="form-control" id="date" name="date">
+                    <div class="error" id="date_err"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="price">Unit Price</label>
+                    <input type="text" class="form-control" id="price" name="price">
+                    <div class="error" id="price_err"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="quantity">Quantity</label>
+                    <input type="text" class="form-control" id="quantity" name="quantity">
+                    <div class="error" id="quantity_err"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="product">Product Type</label>
+                    <select class="custom-select" id="product" name="product">
+                        <option selected value="-- Product Type --">-- Product Type --</option>
+                        <option value="Organic">Organic</option>
+                        <option value="None Organic">None Organic</option>
+                    </select>
+                    <div class="error" id="product_err"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="payment">Mode Of Payment</label>
+                    <select class="custom-select" id="payment" name="payment">
+                        <option selected value="-- Mode Of Payment --">-- Mode Of Payment --</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Mobile Money">Mobile Money</option>
+                    </select>
+                    <div class="error" id="payment_err"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="input">Upload Image</label>
+                    <input type="file" name="uploadimage" class="form-control" placeholder="" id="uploadimage">
+                    <div class="error" id="uploadimage_err"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="delivery">Mode Of Delivery</label>
+                    <select class="custom-select" id="delivery" name="delivery">
+                        <option selected value="-- Mode Of Delivery --">-- Mode Of Delivery --</option>
+                        <option value="Pickup">Pickup</option>
+                        <option value="Home Delivery">Home Delivery</option>
+                    </select>
+                    <div class="error" id="delivery_err"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="directions">Directions</label>
+                    <input type="text" class="form-control" id="directions" name="directions">
+                    <div class="error" id="directions_err"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-12 mb-1">
+                    <label for="directions">Description</label>
+                    <input type="text" class="form-control" id="directions" name="directions">
+                    <div class="error" id="directions_err"></div>
+                </div>
+            </div>
+
+        <button class="btn btn-primary" type="submit" onclick='addProduct()'>Register</button>
+        </form>
+        </div>
+        <script src="/validateAddproduct.js"></script>
+
+        <!-- Bootstrap being added to js -->
+        <script src="js/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+        <script src="js/bootstrap/js/popper.min.js"></script>
+        <script src="js/bootstrap/js/bootstrap.js"></script>
+        <!-- Top navigation bar -->
+        <script src="/includes/nav.js"></script>
+  </body>
+</html>

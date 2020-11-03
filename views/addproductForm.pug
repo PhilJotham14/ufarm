@@ -17,14 +17,14 @@
         <h3 class="text-center text-primary mb-5"><i class="fa fa-id-card"> ADD PRODUCT FORM.</h3></i>
             <div class="form-row">
                 <div class="col-md-6 mb-3">
-                    <label for="names">Names</label>
+                    <label for="names">Product Name</label>
                     <input type="text" class="form-control" id="names" name="names">
                     <div class="error" id="names_err"></div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="ward">Ward Name.</label>
                     <select class="custom-select" id="ward" name="ward">
-                        <option selected value="-- Ward they Represent --">-- Ward they Represent --</option>
+                        <option selected value="-- Ward of Product --">-- Ward of Product --</option>
                         <option value="Ward One">Ward One</option>
                         <option value="Ward Two">Ward Two</option>
                         <option value="Ward Three">Ward Three</option>
@@ -42,9 +42,15 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="price">Unit Price</label>
-                    <input type="text" class="form-control" id="price" name="price">
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Ugx.</span>
+                    </div>
+                    <input type="text" class="form-control" id="price" name="price" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
                     <div class="error" id="price_err"></div>
                 </div>
+
             </div>
 
             <div class="form-row">
@@ -98,27 +104,25 @@
                 </div>
             </div>
 
-        <button class="btn btn-primary" type="submit" onclick='officeRegistration()'>Register</button>
+            <div class="form-row">
+                <div class="col-md-12 mb-1">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description">
+                    <div class="error" id="description_err"></div>
+                </div>
+            </div>
+
+        <button class="btn btn-primary" type="submit" onclick='addProduct()'>Register</button>
         </form>
         </div>
-        <script src="/validateOfficeReg.js"></script>
+        <script src="/validateAddproduct.js"></script>
 
+        <!-- Bootstrap being added to js -->
+        <script src="js/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+        <script src="js/bootstrap/js/popper.min.js"></script>
+        <script src="js/bootstrap/js/bootstrap.js"></script>
 
-        //- <!-- Bootstrap being added to js -->
-        //- <script src="js/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
-        //- <script src="js/bootstrap/js/popper.min.js"></script>
-        //- <script src="js/bootstrap/js/bootstrap.js"></script>
         //- <!-- Top navigation bar -->
         <script src="/includes/nav.js"></script>
-        //- <!-- Footer infinite slider -->
-        //- <script src="carousel/carousel.js"></script>
-        //- <script src="carousel/slideInc.js"></script>
-        //- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-        //- <!-- Slick Slider JS -->
-        //- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-        //- <!-- Advanced Font Awesome NB: You used two font awesomes for this project. -->
-        //- <script src="https://kit.fontawesome.com/496f246847.js" crossorigin="anonymous"></script>
-        //- <script src="/index.js"></script>
-        //- <!-- <script src="routes/registrationform.js"></script> -->
   </body>
 </html>

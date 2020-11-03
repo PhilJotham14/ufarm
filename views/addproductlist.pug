@@ -45,9 +45,8 @@ block content
                             input(type="hidden", placeholder="", name="id", value=product._id)
                             button.btn.btn-dark.btn-block(type="submit") Delete
 
-                        form(method="post" action='/update')
-                            input(type="hidden", placeholder="", name="id", value=product._id)
+                    td
+                        a(href='/addproduct/edit/'+product._id)
                             button.btn.btn-dark.btn-block(type="submit") Update
-                    //- td
-                    //-     a(href='/addproduct/edit/'+product._id)
-                    //-         button.btn.btn-dark.btn-block(type="submit") Update
+    div.col-md-2.offset-9
+            <a class="nav-link btn btn-outline-success" href="/wardOneDashboard"><i class="fas fa-dice-d20"  aria-hidden="true"></i></i> BACK</a>
