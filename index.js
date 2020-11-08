@@ -17,8 +17,9 @@ const urbanFarmerRegisterationRoutes=require('./routes/urbanFarmerRegisterRoutes
 const wardOauthsignUpFormRoutes=require('./routes/wardOAuthSignUpFormRoutes')
 const wardOauthsignInFormRoutes=require('./routes/wardOAuthSignInFormRoutes')
 const addproductFormRoutes=require('./routes/addproductformroutes')
+const addproductFormEditRoutes=require('./routes/addproductformroutes')
 const bookinglistFormRoutes=require('./routes/bookingformroutes')
-
+const contactUsFormRoutes=require('./routes/contactusroutes')
 
 const bodyParser= require('body-parser')
 
@@ -39,6 +40,7 @@ require('./model/agricOfficerSignUpmodel');
 require('./model/wardOAuthSignUpFormmodel');
 require('./model/addproductmodel');
 require('./model/bookingformmodel');
+require('./model/contactUsmodel');
 
 
 
@@ -106,6 +108,8 @@ app.use('/wardOAuthSignInForm',wardOauthsignInFormRoutes);
 app.use('/addproduct',addproductFormRoutes);
 app.use('/addproduct/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/booking',bookinglistFormRoutes);
+app.use('/addproduct/update/',addproductFormEditRoutes);
+app.use('/contact',contactUsFormRoutes);
 
 //When a wrong path is accessed.
 app.get('*', (req, res) => {

@@ -11,5 +11,6 @@ const addproductsSchema = new mongoose.Schema({
     uploadimage: String,
     delivery: String,
     directions: String,
+    description: String,
   });
 module.exports = mongoose.model('Addproduct', addproductsSchema); 

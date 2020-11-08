@@ -24,6 +24,7 @@ block content
                 th Upload Image
                 th Mode Of Delivery
                 th Directions
+                th Description
                 th   
                 th  
         tbody
@@ -40,6 +41,7 @@ block content
                         img(src=product.uploadimage, alt="", srcset="" width="100")
                     td #{product.delivery}
                     td #{product.directions}
+                    td #{product.description}
                     td
                         form(method="post" action='/addproduct/delete')
                             input(type="hidden", placeholder="", name="id", value=product._id)

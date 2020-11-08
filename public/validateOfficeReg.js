@@ -88,7 +88,7 @@ function officeRegistration(){
         }
     }
 
-    // _______ validating occupation
+    // _______ validating phone number
     if(phoneNumber === ""){
         printError("phoneNumber_err", "please enter Phone Number");
         const errId = document.getElementById('phoneNumber');

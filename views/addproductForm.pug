@@ -44,9 +44,9 @@
                     <label for="price">Unit Price</label>
                     <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Ugx.</span>
+                        <span class="input-group-text" id="ugx">Ugx.</span>
                     </div>
-                    <input type="text" class="form-control" id="price" name="price" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" id="price" name="price" aria-label="Username" aria-describedby="basic-addon1" data-type="currency">
                     </div>
                     <div class="error" id="price_err"></div>
                 </div>
@@ -116,6 +116,7 @@
         </form>
         </div>
         <script src="/validateAddproduct.js"></script>
+
 
         <!-- Bootstrap being added to js -->
         <script src="js/bootstrap/js/jquery-3.5.1.slim.min.js"></script>

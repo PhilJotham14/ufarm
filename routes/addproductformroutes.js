@@ -47,6 +47,7 @@ router.get('/', (req, res) => {
       uploadimage: req.file.path,
       delivery: req.body.delivery,
       directions: req.body.directions,
+      description: req.body.description,
     });
     try {
       await addproductmodel.save()
@@ -131,7 +132,7 @@ router.get('/', (req, res) => {
 
 
 
-  router.post('/addproduct/:id', upload.single('uploadimage'), async (req, res) => {
+  router.get('/addproduct/:id', upload.single('uploadimage'), async (req, res) => {
     //outputs the form values in the console
     console.log(req.body);
     console.log(req.file);
@@ -147,6 +148,7 @@ router.get('/', (req, res) => {
         uploadimage: req.file.path,
         delivery: req.body.delivery,
         directions: req.body.directions,
+        description: req.body.description,
     });
     try {
       await addproductmodel.update()

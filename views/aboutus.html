@@ -47,23 +47,30 @@
         </div>
       </div>
     </div>
-    <div class="contactus" id="contactus">
-      <h1 class="title">contact us</h1>
-      <div class="form_wrapper">
-        <div class="form_input">
-          <input type="text" placeholder="Email">
-        </div>
-        <div class="form_input">
-          <input type="text" placeholder="Subject">
-        </div>
-        <div class="form_input">
-          <textarea placeholder="Message"></textarea>
-        </div>
-        <div class="btn">
-          <a href="#">Submit</a>
+    <form name="mydata" action="/contact" method="POST">
+      <div class="contactus" id="contactus">
+        <h1 class="title">contact us</h1>
+        <div class="form_wrapper">
+          <div class="form_input">
+            <input type="text" placeholder="Email" id="email" name="email">
+            <div class="error" id="email_err"></div>
+          </div>
+          <div class="form_input">
+            <input type="text" placeholder="Subject" id="subject" name="subject">
+            <div class="error" id="subject_err"></div>
+          </div>
+          <div class="form_input">
+            <textarea placeholder="Message" id="message" name="message"></textarea>
+            <div class="error" id="message_err"></div>
+          </div>
+          <div class="btn">
+            <!-- <a href="#">Submit</a> -->
+          <button class="btn btn-primary" type="submit" onclick='contactUs()'>Submit</button>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
+    <script src="/validateContact.js"></script>
   
   
     <div class="ourteam" id="ourteam">

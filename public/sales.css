@@ -112,3 +112,6 @@ a{
 .text-center{
 	font-family: cursive;
 }
+.error {
+    color: red;
+  }

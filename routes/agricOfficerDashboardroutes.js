@@ -7,21 +7,21 @@ router.get('/', (req,res) => {
     res.render('agricOfficerDashboard')
 })
 
-router.get('/', (req,res) => {
-    res.render('wardTwoDashboard')
-})
+// router.get('/', (req,res) => {
+//     res.render('wardTwoDashboard')
+// })
 
-router.get('/', (req,res) => {
-    res.render('wardThreeDashboard')
-})
+// router.get('/', (req,res) => {
+//     res.render('wardThreeDashboard')
+// })
 
-router.get('/', (req,res) => {
-    res.render('wardFourDashboard')
-})
+// router.get('/', (req,res) => {
+//     res.render('wardFourDashboard')
+// })
 
-router.get('/', (req,res) => {
-    res.render('urbanFarmerDashboard')
-})
+// router.get('/', (req,res) => {
+//     res.render('urbanFarmerDashboard')
+// })
 
 //logout
 router.post('/logout', (req, res) => {
