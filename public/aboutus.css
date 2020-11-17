@@ -333,3 +333,7 @@ body{
 	/* border:3px solid $buttonBorder; */
 	border-radius:5px;
 }
+
+.error {
+    color: red;
+}

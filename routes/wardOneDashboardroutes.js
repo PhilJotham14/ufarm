@@ -9,7 +9,7 @@ router.get('/', (req,res) => {
 
 
 //logout
-router.post('/logout', (req, res) => {
+router.post('/', (req, res) => {
     if (req.session) {
         req.session.destroy(function (err) {
             if (err) {

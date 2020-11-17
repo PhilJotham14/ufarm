@@ -1,14 +1,3 @@
-// const express=require('express');
-// const mongoose=require('mongoose');
-// const router=express.Router();
-
-
-// //displays the register page
-// router.get('/', (req,res) => {
-//     res.render('officeregistration')
-// })
-
-// module.exports=router;
 const express=require('express');
 const mongoose=require('mongoose');
 const router=express.Router();
@@ -17,7 +6,7 @@ const router=express.Router();
 const Officeregistration=require('../model/officeregistrationmodel')
 
 //Office registration
-router.get('/officeregistration', (req, res) => {
+router.get('/', (req, res) => {
     res.render('officeregistration')
   })
   

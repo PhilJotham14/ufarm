@@ -1,5 +1,3 @@
-const { eventNames } = require("../model/addproductmodel");
-
 function printError(elemId, hintMsg){
     document.getElementById(elemId).innerHTML = hintMsg;
 }
@@ -79,9 +77,9 @@ function urbanRegistration(){
         // errId.style.border = '1px solid red';
     }
     else{
-        var regex = /^[a-zA-Z\s]+$/;
+        var regex = /^(\$|)([1-9]\d{0,2}(\,\d{3})*|([1-9]\d*))(\.\d{2})?$/;
         if(regex.test(farmerOneNumber) === false){
-            printError("place_err", "please enter a valid location")
+            printError("farmerOneNumber_err", "Unique ID should be in numbers")
             const errId = document.getElementById('farmerOneNumber');
             errId.style.border = '1px solid red';
         }else{
@@ -118,9 +116,9 @@ function urbanRegistration(){
         const errId = document.getElementById('nin');
         errId.style.border = '1px solid red';
     }
-    else  if(nin.length < 1 || nin.length > 14){
-        printError("nin_err", "invalid length");
-        // const errId = document.getElementById('nationality');
+    else  if(nin.length < 13 || nin.length > 14){
+        printError("nin_err", "NIN Length should be 14 characters only");
+        // const errId = document.getElementById('nin');
         // errId.style.border = '1px solid red';
     }
     else{

@@ -8,7 +8,7 @@ function contactUs(){
     var message = document.mydata.message.value;
     
     // ___ Defining error varriables with default value
-    var email_err  = subject_err = message_err = true;
+    var email_err = subject_err = message_err = true;
 
     // _______ validating client name
 
@@ -53,7 +53,7 @@ function contactUs(){
     
     // _______ validating check In
     if(message === ""){
-        printError("date_err", "Please Enter Your Message");
+        printError("message_err", "Please Enter Your Message");
         const errId = document.getElementById('message');
         errId.style.border = '1px solid red';
         }    else{

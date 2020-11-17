@@ -3,8 +3,8 @@ const router = express.Router();
 const passport = require('passport');
 
 // gets and displays a login page
-router.get('/wardOAuthSignInForm', (req, res) => {
-    res.render('wardOAuthSignInForm')
+router.get('/adminsignin', (req, res) => {
+    res.render('adminSignIn')
 })
 
 //process the username and password
@@ -12,12 +12,13 @@ router.get('/wardOAuthSignInForm', (req, res) => {
 //     req.session.user = req.user;
 //     res.redirect('/officeregistration/officeregistration');
 // });
-// router.post('/wardOAuthSignInForm', (req, res) => {
-//     res.redirect('/urbanFarmerDashboard');
+// router.post('/agricsignin', (req, res) => {
+//     res.redirect('/wardOneDashboard');
 // });
 
-router.post('/wardOAuthSignInForm', passport.authenticate('local'), (req, res) => {
+//process the username and password
+router.post('/adminsignin', passport.authenticate('local'), (req, res) => {
     req.session.user = req.user;
-    res.redirect('/urbanFarmerDashboard');
+    res.redirect('/agricOfficerDashboard');
 });
 module.exports = router;

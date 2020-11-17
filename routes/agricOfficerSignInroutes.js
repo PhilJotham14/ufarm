@@ -12,7 +12,13 @@ router.get('/agricsignin', (req, res) => {
 //     req.session.user = req.user;
 //     res.redirect('/officeregistration/officeregistration');
 // });
-router.post('/agricsignin', (req, res) => {
-    res.redirect('/agricOfficerDashboard');
+// router.post('/agricsignin', (req, res) => {
+//     res.redirect('/wardOneDashboard');
+// });
+
+//process the username and password
+router.post('/agricsignin', passport.authenticate('local'), (req, res) => {
+    req.session.user = req.user;
+    res.redirect('/wardOneDashboard');
 });
 module.exports = router;

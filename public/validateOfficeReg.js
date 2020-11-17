@@ -77,9 +77,9 @@ function officeRegistration(){
         // errId.style.border = '1px solid red';
     }
     else{
-        var regex = /^[a-zA-Z\s]+$/;
+        var regex = /^(\$|)([1-9]\d{0,2}(\,\d{3})*|([1-9]\d*))(\.\d{2})?$/;
         if(regex.test(farmerOneNumber) === false){
-            printError("place_err", "Please enter a valid location")
+            printError("farmerOneNumber_err", "Farmer One Number should be in numbers")
             const errId = document.getElementById('farmerOneNumber');
             errId.style.border = '1px solid red';
         }else{
@@ -116,7 +116,7 @@ function officeRegistration(){
         const errId = document.getElementById('nin');
         errId.style.border = '1px solid red';
     }
-    else  if(nin.length < 1 || nin.length > 14){
+    else  if(nin.length < 13 || nin.length > 14){
         printError("nin_err", "invalid length");
         // const errId = document.getElementById('nationality');
         // errId.style.border = '1px solid red';

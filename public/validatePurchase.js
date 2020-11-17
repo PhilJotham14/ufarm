@@ -132,7 +132,7 @@ function purchase(){
 
         // _______ validating Mode of Delivery
         if(delivery === "-- Mode Of Delivery --"){
-        printError("product_err", "Please Select Mode of Delivery");
+        printError("delivery_err", "Please Select Mode of Delivery");
         const errId = document.getElementById('delivery');
         errId.style.border = '1px solid red';
     }else{

@@ -12,7 +12,7 @@ const {emailSending}=require('./mail')
 //     res.sendFile("aboutus.html", { root: view });
 //   })
   
-  router.post('/contact', async (req, res) => {
+  router.post('/', async (req, res) => {
     emailSending(req.body.email,  `subject:${req.body.subject}\n message:${req.body.message}`)
     const contactusformmodel = new Contactu(req.body);
     try {

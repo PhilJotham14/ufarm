@@ -20,6 +20,9 @@ const addproductFormRoutes=require('./routes/addproductformroutes')
 const addproductFormEditRoutes=require('./routes/addproductformroutes')
 const bookinglistFormRoutes=require('./routes/bookingformroutes')
 const contactUsFormRoutes=require('./routes/contactusroutes')
+const adminSignUpFormRoutes=require('./routes/adminSignUproutes')
+const adminSignInFormRoutes=require('./routes/adminSignInroutes')
+const horticultureLinkRoutes=require('./routes/salesroutes')
 
 const bodyParser= require('body-parser')
 
@@ -36,8 +39,9 @@ const mongoose = require('mongoose');
 
 require('./model/officeregistrationmodel');
 require('./model/urbanFarmerregisterationmodel');
-require('./model/agricOfficerSignUpmodel');
-require('./model/wardOAuthSignUpFormmodel');
+const Wardoauthsignups = require('./model/wardOAuthSignUpFormmodel');
+const Agricofficersignup = require('./model/agricOfficerSignUpmodel');
+const AdminsignUp = require('./model/adminSignUpmodel');
 require('./model/addproductmodel');
 require('./model/bookingformmodel');
 require('./model/contactUsmodel');
@@ -83,10 +87,20 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Registration Passport configs
-// passport.use(Registration.createStrategy());
-// passport.serializeUser(Registration.serializeUser());
-// passport.deserializeUser(Registration.deserializeUser());
+//Urban Farmer Passport configs
+passport.use(Wardoauthsignups.createStrategy());
+passport.serializeUser(Wardoauthsignups.serializeUser());
+passport.deserializeUser(Wardoauthsignups.deserializeUser());
+
+//Ward One/Farmer One Passport Configs
+passport.use(Agricofficersignup.createStrategy());
+passport.serializeUser(Agricofficersignup.serializeUser());
+passport.deserializeUser(Agricofficersignup.deserializeUser());
+
+//Admin (AgricOfficer Portal)Passport Configs
+passport.use(AdminsignUp.createStrategy());
+passport.serializeUser(AdminsignUp.serializeUser());
+passport.deserializeUser(AdminsignUp.deserializeUser());
 
 //Registering use of middleware.
 app.use('/',indexRoutes);
@@ -98,9 +112,9 @@ app.use('/agricOfficerDashboard',agricOfficerDashboardRoutes);
 app.use('/agricOfficerSignUpForm',agricOfficerSignUpFormRoutes);
 app.use('/agricsignin',agricOfficerSignInFormRoutes);
 app.use('/wardOneDashboard',wardOneDashboardRoutes);
-app.use('/wardTwoDashboard',agricOfficerDashboardRoutes);
-app.use('/wardThreeDashboard',agricOfficerDashboardRoutes);
-app.use('/wardFourDashboard',agricOfficerDashboardRoutes);
+// app.use('/wardTwoDashboard',agricOfficerDashboardRoutes);
+// app.use('/wardThreeDashboard',agricOfficerDashboardRoutes);
+// app.use('/wardFourDashboard',agricOfficerDashboardRoutes);
 app.use('/urbanFarmerDashboard',urbanFarmerDashboardRoutes);
 app.use('/urbanFarmerRegister',urbanFarmerRegisterationRoutes);
 app.use('/wardOAuthSignUpForm',wardOauthsignUpFormRoutes);
@@ -110,6 +124,10 @@ app.use('/addproduct/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/booking',bookinglistFormRoutes);
 app.use('/addproduct/update/',addproductFormEditRoutes);
 app.use('/contact',contactUsFormRoutes);
+app.use('/adminsignup',adminSignUpFormRoutes);
+app.use('/adminsignin', adminSignInFormRoutes);
+app.use('/logout',agricOfficerDashboardRoutes);
+app.use('/horticulture',horticultureLinkRoutes);
 
 //When a wrong path is accessed.
 app.get('*', (req, res) => {
