@@ -37,18 +37,4 @@ router.get('/', async (req, res) => {
     }
   })
 
-  router.get('/horticulture', async (req, res) => {
-    try {
-        let items = await Addproduct.find()
-        if (req.query.ward) {
-          items = await Addproduct.find({ category: req.query.ward })
-        }
-      //addproductform is for the PUG file.
-      res.render('sales', { products: items })
-    } catch (err) {
-      res.status(400).send("unable to find items in the database");
-    }
-  })
-
-
 module.exports=router;

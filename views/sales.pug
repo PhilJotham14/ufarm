@@ -16,7 +16,7 @@ html(lang="en")
     title U-FARM
   body
     div(w3-include-html="/includes/nav.html")
-    .container
+    .container(id="horticu")
       .row 
         .col-12 
           h2.text-center HORTICULTURE PRODUCTS
@@ -105,10 +105,10 @@ html(lang="en")
               a.price(href="#") Ugx.27,000
     br
     // DAIRY
-    .container
+    .container(id="dairy")
       .row
         .col-12
-          h2.text-center DAIRY
+          h2.text-center DAIRY 
     section.sliderx
       ul.autoWidth
         // 1------------------------
@@ -193,7 +193,7 @@ html(lang="en")
               a.price(href="#") Ugx.27,000
               br
     // POULTRY
-    .container
+    .container(id="poult")
       br
       .row
         .col-12
@@ -392,6 +392,58 @@ html(lang="en")
                                       span #{product.description}
                                   // price
                                   a.price(href="#") Ugx.#{product.price}
+    <div class="footer container-fluid text-center" style="background-color: black;">
+      <div class="footer-content">
+      <div class="footer-section about">
+        <h5>OUR PARTNERS</h5>
+            <div class="container">
+                <!-- Infinite Slider -->
+                <section class="customer-logos slider">
+                <div class="slide"><img src="img/vege.jpg"></div>
+                <div class="slide"><img src="img/organic.jpg"></div>
+                <div class="slide"><img src="img/bpa.jpg"></div>
+                <div class="slide"><img src="img/eco.jpg"></div>
+                <div class="slide"><img src="img/berry.jpg"></div>
+                <div class="slide"><img src="img/farm.jpg"></div>
+                <div class="slide"><img src="img/mmar.jpg"></div>
+                <div class="slide"><img src="img/Green House Logo-01.jpg"></div>
+                </section>
+            </div>
+      </div>
+        <div class="footer-section links">
+            <div class="card mx-auto" style="width: 18rem;">
+                <div class="card-header center">
+                    ADMIN PANEL<i class="fas fa-user-astronaut"></i>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" style="background-color:rgb(0, 111, 131);"><a href="/adminsignin/adminsignin"><i class="fa fa-id-card"></i> AGRICULTURAL OFFICER</a></li>
+                  <li class="list-group-item" style="background-color:rgb(0, 111, 131);"><a href="/agricsignin/agricsignin"><i class="fa fa-id-card"></i> WARD 1 / FARMER ONE </a></li>
+                  <!-- <li class="list-group-item" style="background-color:rgb(0, 111, 131);"><a href="#"><i class="fa fa-id-card"></i> WARD 2 / FARMER ONE</a></li>
+                  <li class="list-group-item" style="background-color:rgb(0, 111, 131);"><a href="#"><i class="fa fa-id-card"></i> WARD 3 / FARMER ONE</a></li>
+                  <li class="list-group-item" style="background-color:rgb(0, 111, 131);"><a href="#"><i class="fa fa-id-card"></i> WARD 4 / FARMER ONE</a></li> -->
+                  <li class="list-group-item" style="background-color:rgb(0, 111, 131);"><a href="/wardOAuthSignInForm/wardOAuthSignInForm"><i class="fa fa-id-card"></i> URBAN FARMER</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-form">
+              <div class="icon-bar">
+                <!-- if u change class to footer-bottom it will affect wen scrren is minimised -->
+                <div class="#">
+                  |© | U FARM<i class="fab fa-the-red-yeti fa-2x"></i>&#169; 
+                </div>
+                <a href="#" class="facebook"><i class="fa fa-facebook fa-1x" ></i></a>
+                <a href="#" class="twitter"><i class="fa fa-twitter fa-1x"></i></a>
+                <a href="#" class="google"><i class="fa fa-google fa-1x"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin fa-1x"></i></a>
+                <a href="#" class="youtube"><i class="fa fa-youtube fa-1x"></i></a>
+              </div>
+            </div>
+        </div>
+          <div class="#">
+            |© | Designed by OKIROR PHILLIP JOTHAM &#169;
+          </div>
+        </div>
+    </div>
     .wrap
                 //- | //- 
                 //- .intro
@@ -480,7 +532,7 @@ html(lang="en")
     script(src="//code.jquery.com/jquery-1.11.3.min.js")
     script(src="/query.js")
     script(src="/validatePurchase.js")
-    div(w3-include-html="/includes/footer.html")
+    //- div(w3-include-html="/includes/footer.html")
     // Bootstrap being added to js
     script(src="js/bootstrap/js/jquery-3.5.1.slim.min.js")
     script(src="js/bootstrap/js/popper.min.js")

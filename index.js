@@ -22,7 +22,6 @@ const bookinglistFormRoutes=require('./routes/bookingformroutes')
 const contactUsFormRoutes=require('./routes/contactusroutes')
 const adminSignUpFormRoutes=require('./routes/adminSignUproutes')
 const adminSignInFormRoutes=require('./routes/adminSignInroutes')
-const horticultureLinkRoutes=require('./routes/salesroutes')
 
 const bodyParser= require('body-parser')
 
@@ -98,9 +97,9 @@ passport.serializeUser(Agricofficersignup.serializeUser());
 passport.deserializeUser(Agricofficersignup.deserializeUser());
 
 //Admin (AgricOfficer Portal)Passport Configs
-passport.use(AdminsignUp.createStrategy());
-passport.serializeUser(AdminsignUp.serializeUser());
-passport.deserializeUser(AdminsignUp.deserializeUser());
+// passport.use(AdminsignUp.createStrategy());
+// passport.serializeUser(AdminsignUp.serializeUser());
+// passport.deserializeUser(AdminsignUp.deserializeUser());
 
 //Registering use of middleware.
 app.use('/',indexRoutes);
@@ -127,7 +126,6 @@ app.use('/contact',contactUsFormRoutes);
 app.use('/adminsignup',adminSignUpFormRoutes);
 app.use('/adminsignin', adminSignInFormRoutes);
 app.use('/logout',agricOfficerDashboardRoutes);
-app.use('/horticulture',horticultureLinkRoutes);
 
 //When a wrong path is accessed.
 app.get('*', (req, res) => {
