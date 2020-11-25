@@ -73,44 +73,6 @@ router.get('/', (req, res) => {
     }
   })
 
-
-  // router.post('/update', async (req, res, next) => {
-  //   try {
-  //     await Addproduct.updateOne ({"_id": objectId(id)}, {$set: item},({
-  //       names: req.body.names,
-  //       ward: req.body.ward,
-  //       date: req.body.date,
-  //       price: req.body.price,
-  //       quantity: req.body.quantity,
-  //       product: req.body.product,
-  //       payment: req.body.payment,
-  //       uploadimage: req.file.path,
-  //       delivery: req.body.delivery,
-  //       directions: req.body.directions,
-  //      })
-  //     // res.redirect('back')
-  //     )} catch (error) {
-  //      res.status(400).send("unable to update to database");
-  //   }
-  // })
-
-  // router.put('/update', function(req, res){
-  //   console.log('Update');
-  //   Names.findByIdAndUpdate(req.params.id),
-  //   {
-      
-  //   }
-  //   // ward: req.body.ward,
-  //   // date: req.body.date,
-  //   // price: req.body.price,
-  //   // quantity: req.body.quantity,
-  //   // product: req.body.product,
-  //   // payment: req.body.payment,
-  //   // uploadimage: req.file.path,
-  //   // delivery: req.body.delivery,
-  //   // directions: req.body.directions,
-  // })
-
   router.post("/delete", async (req, res) => {
     try {
       await Addproduct.deleteOne({_id: req.body.id })
@@ -120,23 +82,28 @@ router.get('/', (req, res) => {
     }
   })
 
-  //just added for testing
-  //   //__________ view single purchase
-  // router.get('/addproduct/:id', (req,res)=>{
-  //   Addproduct.findById(req.params.id, (error, purchase) =>{
-  //     res.render('addproductFormdup',{//create this view
-  //       products:products
-  //     })
+  // Updating Products routes (This method worked on getting but changed due to the get not functioning as expected)
+  // router.get('/edit/:id', (req,res)=>{
+  //   Addproduct.findById(req.params.id, (errror, products) =>{
+  //     res.render('addproductFormdup', { products: products })
   //   })
-  // }) 
+  // })
 
-
-  // Updating Products routes
-  router.get('/edit/:id', (req,res)=>{
-    Addproduct.findById(req.params.id, (errror, products) =>{
-      res.render('addproductFormdup', { products: products })
-    })
-  })
+  //  Product update route which takes you from the update button to updateProductlist.pug page 
+// which allows the user to update the product details
+router.get('/edit/:id', async (req, res) => {
+  try {
+      let items = await Addproduct.find({
+          _id: req.params.id
+      })
+      res.render('addproductFormdup', {
+        products: items
+      })
+  } catch (error) {
+      console.log(error)
+      res.status(400).send("Unable to update")
+  }
+})
 
   // // ___________ update add product
   // router.post('/addproduct/:id', async (req, res) =>{ 
@@ -150,17 +117,35 @@ router.get('/', (req, res) => {
   //     }
   // })
 
-  //__________ update the agent(update action)
-  router.post('/addproduct/:id', async (req, res) =>{ 
-    let query ={_id:req.params.id}
-    try{
-      await Addproduct.update(query, req.body.i)
-      res.redirect('back')
-    }catch (err) {
-      res.send("Sorry! Something went wrong.");
-      console.log(err)
+// Updating a single product including the product photo
+router.post('/update/:id', upload.single('uploadimage'), async (req, res) => {
+    
+  try {
+      await Addproduct.updateOne({
+          _id: req.params.id
+      }, {
+              $set: 
+              {
+                names: req.body.names,
+                ward: req.body.ward,
+                date: req.body.date,
+                price: req.body.price,
+                quantity: req.body.quantity,
+                product: req.body.product,
+                payment: req.body.payment,
+                uploadimage: req.file.path,
+                delivery: req.body.delivery,
+                directions: req.body.directions,
+                description: req.body.description
+          }
+      })
+      console.log(req.body)
+      res.redirect("/addproduct/addproductform")
+  } catch (error) {
+      console.log(error)
+      res.status(400).send("Unable to update")
   }
-  })
+})
 
 
   module.exports=router;
