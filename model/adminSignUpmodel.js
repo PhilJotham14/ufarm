@@ -5,7 +5,7 @@ const adminSignUpsSchema = new mongoose.Schema({
       type: String,
       unique: true},
     email: String,
-    password: String,
+    // password: String,
 });
 adminSignUpsSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('AdminsignUp', adminSignUpsSchema );

@@ -7,12 +7,12 @@ html(lang="en")
     link(rel="stylesheet" type="text/css" href="/officeregistration.css")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.min.css")
-    title Add Product Form.
+    title Edit Product Form.
   body
     div(w3-include-html="/includes/customnav.html")
 each product in products
     .container
-      form(name="mydata" action="/addproduct/update/"+products._id method="POST" enctype="multipart/form-data")
+      form(name="mydata" action="/addproduct/update/"+product._id method="POST" enctype="multipart/form-data")
         h3.text-center.text-primary.mb-5
           i.fa.fa-id-card  EDIT PRODUCT FORM.
         .form-row
@@ -46,11 +46,11 @@ each product in products
           .col-md-6.mb-3
             label(for="quantity") Quantity
             input#quantity.form-control(type="text" name="quantity" value=product.quantity)
-            //- #quantity_err.error
+            #quantity_err.error
           .col-md-6.mb-3
             label(for="product") Product Type
             //- select#product.custom-select(name="product")
-            input#quantity.form-control(type="text" name="product" value=product.product)
+            input#product.form-control(type="text" name="product" value=product.product)
             //-   option(selected="" value="-- Product Type --") -- Product Type --
             //-   option(value="Organic") Organic
             //-   option(value="None Organic") None Organic
@@ -58,7 +58,7 @@ each product in products
         .form-row
           .col-md-6.mb-3
             label(for="payment") Mode Of Payment
-            input#quantity.form-control(type="text" name="payment" value=product.payment)
+            input#payment.form-control(type="text" name="payment" value=product.payment)
             //- select#payment.custom-select(name="payment")
             //-   option(selected="" value="-- Mode Of Payment --") -- Mode Of Payment --
             //-   option(value="Cash") Cash
@@ -71,11 +71,7 @@ each product in products
         .form-row
           .col-md-6.mb-3
             label(for="delivery") Mode Of Delivery
-            input#quantity.form-control(name="delivery" value=product.delivery)
-            //- select#delivery.custom-select(name="delivery")
-            //-   option(selected="" value="-- Mode Of Delivery --") -- Mode Of Delivery --
-            //-   option(value="Pickup") Pickup
-            //-   option(value="Home Delivery") Home Delivery
+            input#delivery.form-control(name="delivery" value=product.delivery)
             #delivery_err.error
           .col-md-6.mb-3
             label(for="directions") Directions

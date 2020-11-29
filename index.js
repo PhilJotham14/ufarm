@@ -1,4 +1,4 @@
-console.log('Hello, World! Node is working...')
+console.log('Hello, Ufarm! Node is working...')
 
 const express = require('express');
 
@@ -24,6 +24,8 @@ const adminSignUpFormRoutes=require('./routes/adminSignUproutes')
 const adminSignInFormRoutes=require('./routes/adminSignInroutes')
 
 const bodyParser= require('body-parser')
+
+const multer = require('multer');
 
 const expressSession = require('express-session')({
     secret: 'secret',
@@ -81,6 +83,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(expressSession);
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/sales', express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //Passport configs.
 app.use(passport.initialize());
@@ -97,9 +101,9 @@ passport.serializeUser(Agricofficersignup.serializeUser());
 passport.deserializeUser(Agricofficersignup.deserializeUser());
 
 //Admin (AgricOfficer Portal)Passport Configs
-// passport.use(AdminsignUp.createStrategy());
-// passport.serializeUser(AdminsignUp.serializeUser());
-// passport.deserializeUser(AdminsignUp.deserializeUser());
+passport.use(AdminsignUp.createStrategy());
+passport.serializeUser(AdminsignUp.serializeUser());
+passport.deserializeUser(AdminsignUp.deserializeUser());
 
 //Registering use of middleware.
 app.use('/',indexRoutes);

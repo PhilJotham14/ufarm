@@ -119,7 +119,6 @@ router.get('/edit/:id', async (req, res) => {
 
 // Updating a single product including the product photo
 router.post('/update/:id', upload.single('uploadimage'), async (req, res) => {
-    
   try {
       await Addproduct.updateOne({
           _id: req.params.id
@@ -137,8 +136,8 @@ router.post('/update/:id', upload.single('uploadimage'), async (req, res) => {
                 delivery: req.body.delivery,
                 directions: req.body.directions,
                 description: req.body.description
-          }
-      })
+              }
+          })
       console.log(req.body)
       res.redirect("/addproduct/addproductform")
   } catch (error) {
@@ -147,5 +146,4 @@ router.post('/update/:id', upload.single('uploadimage'), async (req, res) => {
   }
 })
 
-
-  module.exports=router;
+module.exports=router;

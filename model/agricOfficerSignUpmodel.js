@@ -5,7 +5,6 @@ const agricOfficerSignUpsSchema = new mongoose.Schema({
       type: String,
       unique: true},
     email: String,
-    password: String,
 });
 agricOfficerSignUpsSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('Agricofficersignup', agricOfficerSignUpsSchema);

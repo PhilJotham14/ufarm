@@ -17,7 +17,7 @@ const {emailSending}=require('./mail')
     try {
       await bookingformmodel.save()
       // res.send('Thank you for your registration!');
-      res.redirect('/booking/orderlist')
+      res.redirect('/sales')
   } catch (err) {
       res.send('Sorry! Something went wrong.');
       console.log(err);

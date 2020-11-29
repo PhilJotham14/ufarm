@@ -5,7 +5,6 @@ const wardOAuthSignUpsSchema = new mongoose.Schema({
         type: String,
         unique: true},
     email: String,
-    password: String,
 });
 wardOAuthSignUpsSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model('Wardoauthsignups', wardOAuthSignUpsSchema);

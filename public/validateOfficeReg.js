@@ -117,7 +117,7 @@ function officeRegistration(){
         errId.style.border = '1px solid red';
     }
     else  if(nin.length < 13 || nin.length > 14){
-        printError("nin_err", "invalid length");
+        printError("nin_err", "Length should be less than 14 characters");
         // const errId = document.getElementById('nationality');
         // errId.style.border = '1px solid red';
     }

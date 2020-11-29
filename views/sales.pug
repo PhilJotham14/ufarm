@@ -21,7 +21,7 @@ html(lang="en")
         .col-12 
           h2.text-center HORTICULTURE PRODUCTS
     br
-    section.sliderx(action="/horticulture/horticulture" method="POST")
+    section.sliderx(action="/horticulture/horticulture" method="POST" enctype="multipart/form-data")
       ul.autoWidth 
         // 1------------------------
         li.item-a
@@ -378,7 +378,7 @@ html(lang="en")
                               .box
                                 // img-box
                                 .slide-img
-                                  img(src="/uploads"+product.uploadimage, alt=product.names)
+                                  img(src="/"+product.uploadimage, alt=product.names)
                                   // overlayer
                                   .overlay
                                     // but-btn
